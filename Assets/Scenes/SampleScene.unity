@@ -270,6 +270,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wizardman
       objectReference: {fileID: 0}
+    - target: {fileID: 5770545647223731013, guid: b1d1f8751b3e60448990b72404a0d633,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9516632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770545647223731013, guid: b1d1f8751b3e60448990b72404a0d633,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09612213
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014943100175292472, guid: b1d1f8751b3e60448990b72404a0d633,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9650108
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014943100175292472, guid: b1d1f8751b3e60448990b72404a0d633,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.033070326
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 5834812103120518923, guid: b1d1f8751b3e60448990b72404a0d633,
     type: 3}
