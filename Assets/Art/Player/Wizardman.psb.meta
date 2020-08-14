@@ -3781,6 +3781,13 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: Arm with Staff
+    spriteName: Arm with Staff
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 33c3c6b59cfdd434c9c32f247974eeae
+    layerID: 14
+    mosaicPosition: {x: 4, y: 1367}
   - name: Feather
     spriteName: Feather
     isGroup: 0
@@ -3795,13 +3802,6 @@ ScriptedImporter:
     spriteID: c4c8be6639393a942ba4df266af07231
     layerID: 10
     mosaicPosition: {x: 4, y: 4}
-  - name: Arm with Staff
-    spriteName: Arm with Staff
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 33c3c6b59cfdd434c9c32f247974eeae
-    layerID: 14
-    mosaicPosition: {x: 4, y: 1367}
   - name: Right Feet
     spriteName: Right Feet
     isGroup: 0
