@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    bool gameStarted = false;
+    public bool gameStarted = false;
 
     public Animator anim;
     public Rigidbody2D rb;
