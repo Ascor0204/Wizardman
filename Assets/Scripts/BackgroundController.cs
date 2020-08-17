@@ -7,7 +7,8 @@ public class BackgroundController : MonoBehaviour
     public Transform startPosit;
     public Transform endPosit;
 
-    public int moveVel = 5;
+    public int moveVel = 3;
+
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
 
+
     public int jumpForce;
 
     public Transform groundPoint;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
 
     public float yVelocity;
+
     
     // Start is called before the first frame update
     void Start()
@@ -48,5 +50,11 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("grounded", grounded);
+    }
+
+    public void gameOver()
+    {
+        gameStarted = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }
