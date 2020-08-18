@@ -9,6 +9,6 @@ public class Death : MonoBehaviour
     {
         //if something enters, it must be player
         //stop the camera and kill the player
-        player.gameOver();
+        player.GameOver();
     }
 }

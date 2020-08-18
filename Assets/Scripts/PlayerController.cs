@@ -20,7 +20,22 @@ public class PlayerController : MonoBehaviour
 
     public float yVelocity;
 
-    
+    public GameObject deathEffect;
+    public Transform effectPosition;
+
+    public GameObject gameover;
+
+    //body parts
+    public GameObject head;
+    public GameObject body;
+    public GameObject arm1;
+    public GameObject arm2;
+    public GameObject feet1;
+    public GameObject feet2;
+    public GameObject feather;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,9 +67,18 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("grounded", grounded);
     }
 
-    public void gameOver()
+    public void GameOver()
     {
         gameStarted = false;
+        Instantiate(deathEffect, effectPosition.position, Quaternion.identity);
+        gameover.SetActive(true);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        head.SetActive(false);
+        body.SetActive(false);
+        arm1.SetActive(false);
+        arm2.SetActive(false);
+        feet1.SetActive(false);
+        feet2.SetActive(false);
+        feather.SetActive(false);
     }
 }
