@@ -5,16 +5,11 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour
 {
     public Transform startPosit;
-    public Transform endPosit;
+    
 
-    public int moveVel = 3;
+    public int moveVel = 5;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -24,9 +19,9 @@ public class BackgroundController : MonoBehaviour
             return;
         } //end if
 
-        if (transform.position.x != endPosit.position.x)
+        if (transform.position.x != GameManager.instance.endPosit.position.x)
         { // start if (moves the background)
-            transform.position = Vector3.MoveTowards(transform.position, endPosit.position, Time.deltaTime * moveVel);
+            transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.endPosit.position, Time.deltaTime * moveVel);
         } else
         {
             transform.position = startPosit.position;

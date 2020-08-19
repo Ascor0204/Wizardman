@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public bool gameStarted = false;
 
-    public Animator anim;
-    public Rigidbody2D rb;
+    Animator anim;
+    Rigidbody2D rb;
 
 
     public int jumpForce;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask groundLayer;
 
-    public bool grounded;
+    bool grounded;
 
     public float yVelocity;
 
@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -62,6 +63,11 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("jump");
             rb.AddForce(Vector2.up * jumpForce);
         } //end jump if
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameManager.instance.fire.CreateFireball();
+        }
 
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("grounded", grounded);
