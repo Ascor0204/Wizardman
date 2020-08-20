@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (gameStarted == false && Input.GetKeyDown(KeyCode.Space)) //game start if (checks for space press)
         {
             gameStarted = true;
@@ -69,8 +70,10 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.fire.CreateFireball();
         }
 
+        yVelocity = rb.velocity.y;
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("grounded", grounded);
+
     }
 
     public void GameOver()

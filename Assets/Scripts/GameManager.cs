@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public int currentScore = 0;
 
+    public Text ScoreCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ScoreCounter.text = currentScore + "";
     }
 
     public void AddScore()
