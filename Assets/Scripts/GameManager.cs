@@ -17,9 +17,14 @@ public class GameManager : MonoBehaviour
     public Transform fireEnd;
     public Transform purpleEnd;
 
+    public GameObject green;
+    public GameObject purple;
+
     public PlayerController player;
 
     public FireController fire;
+
+    public ShieldController shield;
 
     public int currentScore = 0;
 

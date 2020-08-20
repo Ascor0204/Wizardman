@@ -5,8 +5,6 @@ using UnityEngine;
 public class FireController : MonoBehaviour
 {
 
-    public GameObject green;
-    public GameObject purple;
 
     public Transform greenfire;
     public Transform purplefire;
@@ -49,7 +47,7 @@ public class FireController : MonoBehaviour
         if (countdown < 0) //start if (If countdown is negative, hazard appears)
         {
             appeared = true;
-            green.SetActive(true);
+            GameManager.instance.green.SetActive(true);
         } // end if 
 
         if (greenfire.position.x != GameManager.instance.fireEnd.position.x) //start if (moves greenfire towards player)
@@ -69,13 +67,13 @@ public class FireController : MonoBehaviour
             purpleRB.AddForce(Vector3.up * yForceMultiplier * GameManager.instance.player.yVelocity);
         } else
         {
-            purple.SetActive(false);
+            GameManager.instance.purple.SetActive(false);
         } //end if
     }
 
     public void CreateFireball()
     {
-        purple.SetActive(true);
+        GameManager.instance.purple.SetActive(true);
         purpleCreated = true;
         purplefire.position = GameManager.instance.player.transform.position;
         purplefire.position = new Vector3(purplefire.position.x, purplefire.position.y + 2, purplefire.position.z);

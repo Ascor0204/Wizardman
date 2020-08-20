@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     public GameObject feather;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +67,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             GameManager.instance.fire.CreateFireball();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("Keyyyyy");
+            GameManager.instance.shield.CreateShield();
         }
 
         yVelocity = rb.velocity.y;

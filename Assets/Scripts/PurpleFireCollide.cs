@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PurpleFireCollide : MonoBehaviour
 {
-    public GameObject purpleFire;
-    public GameObject greenFire;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,8 +12,8 @@ public class PurpleFireCollide : MonoBehaviour
             GameManager.instance.AddScore();
             GameObject.Find("Fires").GetComponent<FireController>().appeared = false;
             GameObject.Find("Fires").GetComponent<FireController>().countdown = 3;
-            greenFire.SetActive(false);
-            purpleFire.SetActive(false);
+            GameManager.instance.green.SetActive(false);
+            GameManager.instance.purple.SetActive(false);
         }
     }
 
