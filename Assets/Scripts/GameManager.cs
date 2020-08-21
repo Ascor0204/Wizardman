@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     public FireController fire;
 
-    public ShieldController shield;
 
     public int currentScore = 0;
 

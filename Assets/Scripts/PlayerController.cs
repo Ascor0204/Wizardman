@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public Transform effectPosition;
 
     public GameObject gameover;
+    public GameObject startbutton;
 
     //body parts
     public GameObject head;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public GameObject feet2;
     public GameObject feather;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,34 +53,62 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        if (gameStarted == false && Input.GetKeyDown(KeyCode.Space)) //game start if (checks for space press)
+
+        if (gameStarted == false) //game start if (checks for space press)
         {
-            gameStarted = true;
-            anim.SetTrigger("start");
-            return;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+                return;
+            } else
+            {
+                return;
+            }
+            
         }//end of game start if
 
-        if (grounded && Input.GetKeyDown(KeyCode.Space)) //start jump if (checks for space press)
+        if (Input.GetKeyDown(KeyCode.Space)) //start jump if (checks for space press)
         {
-            anim.SetTrigger("jump");
-            rb.AddForce(Vector2.up * jumpForce);
+            Jump();
         } //end jump if
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GameManager.instance.fire.CreateFireball();
+            fire();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log("Keyyyyy");
-            GameManager.instance.shield.CreateShield();
-        }
+
 
         yVelocity = rb.velocity.y;
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetBool("grounded", grounded);
 
+    }
+
+    public void StartGame()
+    {
+        gameStarted = true;
+        anim.SetTrigger("start");
+        startbutton.SetActive(false);
+    }
+
+    public void Jump()
+    {
+        if (gameStarted && grounded)
+        {
+            anim.SetTrigger("jump");
+            rb.AddForce(Vector2.up * jumpForce);
+        }
+        
+    }
+
+    public void fire()
+    {
+        if (gameStarted)
+        {
+            GameManager.instance.fire.CreateFireball(); 
+        }
+        
     }
 
     public void GameOver()

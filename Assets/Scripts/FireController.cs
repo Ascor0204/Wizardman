@@ -22,6 +22,8 @@ public class FireController : MonoBehaviour
     public int xForce;
     public int yForceMultiplier;
 
+    public float antiWatts = -1;
+
     private void Start()
     {
 
@@ -61,7 +63,7 @@ public class FireController : MonoBehaviour
             countdown = -1;
         }// end if (tps fireball back to start, set countdown to negative to ensure proper creation of next fireball)
 
-        if (purpleCreated && purplefire.position.x < GameManager.instance.purpleEnd.position.x) //start if (ridgidbody force on the purple fire)
+        if (purpleCreated && purplefire.position.x <= GameManager.instance.purpleEnd.position.x) //start if (ridgidbody force on the purple fire)
         {
             purpleRB.AddForce(Vector2.right * xForce);
             purpleRB.AddForce(Vector3.up * yForceMultiplier * GameManager.instance.player.yVelocity);
@@ -69,14 +71,21 @@ public class FireController : MonoBehaviour
         {
             GameManager.instance.purple.SetActive(false);
         } //end if
+
+        antiWatts -= Time.deltaTime;
     }
 
     public void CreateFireball()
     {
-        GameManager.instance.purple.SetActive(true);
-        purpleCreated = true;
-        purplefire.position = GameManager.instance.player.transform.position;
-        purplefire.position = new Vector3(purplefire.position.x, purplefire.position.y + 2, purplefire.position.z);
+        if (antiWatts < 0)
+        {
+            GameManager.instance.purple.SetActive(true);
+            purpleCreated = true;
+            purplefire.position = GameManager.instance.player.transform.position;
+            purplefire.position = new Vector3(purplefire.position.x, purplefire.position.y + 2, purplefire.position.z);
+            antiWatts = 3;
+        }
+        
 
     }
 }
